@@ -38,7 +38,13 @@
 
             btnCart[i].addEventListener("click", () => {
                 let pid = btnCart[i].getAttribute("data-pid");
-                alert(`${pid}が押された`);
+                let xhr = new XMLHttpRequest();
+                xhr.open("GET", `add.php?pid=${pid}`,false);
+                xhr.onload = () => {
+                    let response = xhr.responseText;
+                }
+                xhr.send();
+
             });
         }
 
